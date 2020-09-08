@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tbk.mapper.goodsMapper">
+  <resultMap id="BaseResultMap" type="cn.tbk.dao.goods">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="goodsdesc" jdbcType="VARCHAR" property="goodsdesc" />
+    <result column="iconflag" jdbcType="INTEGER" property="iconflag" />
+    <result column="prices" jdbcType="DECIMAL" property="prices" />
+    <result column="coupon" jdbcType="BIGINT" property="coupon" />
+    <result column="imgurl" jdbcType="VARCHAR" property="imgurl" />
+    <result column="businessid" jdbcType="BIGINT" property="businessid" />
+    <result column="goodsclassifyid" jdbcType="BIGINT" property="goodsclassifyid" />
+    <result column="isboutique" jdbcType="INTEGER" property="isboutique" />
+    <result column="tbkcode" jdbcType="VARCHAR" property="tbkcode" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="salestotal" jdbcType="BIGINT" property="salestotal"/>
+  </resultMap>
+
+  <select id="getGoodsByClassifyType" parameterType="java.util.Map" resultMap="BaseResultMap">
+
+    SELECT a.* FROM  goods a ,goodsclassify b WHERE a.goodsclassifyid=b.id AND b.type=#{type}
+
+    <!--<if test="orderByColumn !=null">-->
+
+      <!--Order by #{orderByColumn} #{isAsc}-->
+
+    <!--</if>-->
+
+  </select>
+
+  <select id="getGoodsByClassifyid" parameterType="java.util.Map" resultMap="BaseResultMap">
+
+    SELECT a.* FROM  goods a ,goodsclassify b WHERE a.goodsclassifyid=b.id AND b.id=#{id}
+
+    <!--<if test="orderByColumn !=null">-->
+
+      <!--Order by #{orderByColumn} #{isAsc}-->
+
+    <!--</if>-->
+  </select>
+
+  <select id="getGoodsByBusinessid" parameterType="java.util.Map" resultMap="BaseResultMap">
+
+    SELECT a.* FROM goods a  WHERE  a.id=#{id}
+
+    <!--<if test="orderByColumn !=null">-->
+
+      <!--Order by #{orderByColumn} #{isAsc}-->
+
+    <!--</if>-->
+  </select>
+
+
+</mapper>

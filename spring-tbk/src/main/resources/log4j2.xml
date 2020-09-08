@@ -1,0 +1,30 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<Configuration status="WARN">-->
+    <!--<Appenders>-->
+        <!--<Console name="Console" target="SYSTEM_OUT" follow="true">-->
+            <!--<PatternLayout>-->
+                <!--<pattern>%d %p %C{1.} [%t] %m%n</pattern>-->
+            <!--</PatternLayout>-->
+        <!--</Console>-->
+        <!--&lt;!&ndash; 按日期每天生成log文件 &ndash;&gt;-->
+        <!--<RollingFile name="RollingFile" fileName="/Volumes/MacData/homeLog/rank/temp/log4j2xc.log"-->
+                     <!--filePattern="temp/CL_BATCH-%d{yyyy-MM-dd}.log">-->
+            <!--<PatternLayout pattern="%d %p %C{1.} [%t] %m%n"/>-->
+            <!--<Policies>-->
+                <!--<TimeBasedTriggeringPolicy interval="1"/>-->
+            <!--</Policies>-->
+
+            <!--&lt;!&ndash; log文件只打印error级别信息 &ndash;&gt;-->
+            <!--<Filters>-->
+                <!--<ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>-->
+            <!--</Filters>-->
+        <!--</RollingFile>-->
+    <!--</Appenders>-->
+    <!--<Loggers>-->
+        <!--&lt;!&ndash; 输出info级别信息 &ndash;&gt;-->
+        <!--<Root level="debug">-->
+            <!--<AppenderRef ref="Console" />-->
+            <!--<AppenderRef ref="RollingFile" />-->
+        <!--</Root>-->
+    <!--</Loggers>-->
+<!--</Configuration>-->

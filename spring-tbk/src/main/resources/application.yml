@@ -1,0 +1,61 @@
+spring:
+  #application配置
+  application:
+    name: boot
+  #mail配置
+#  mail:
+#    host: smtp.qq.com
+#    username: 350774006@qq.com
+#    password:
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          starttls:
+#            enable: false
+#            required: false
+#  #thymeleaf配置
+#  thymeleaf:
+#    cache: false
+#    mode: html5
+
+  #messages配置
+#  messages:
+#    encoding: UTF-8
+
+  #jackson 时间类型返回前端显示格式
+  #注意：提前将时间类型通过json工具转换成String，然后通过String返回前端时以下配置不起作用（原因手动通过工具已经转成了String）
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+
+mybatis:
+  mapper-locations: classpath:mappings/*.xml
+
+
+server:
+  port: 8081
+  servlet:
+    context-path: /tbk
+
+
+#数据源配置
+datasource:
+  druid:
+    url: jdbc:mysql://localhost:3306/tbk?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password:
+    filters: stat,slf4j
+    initialSize: 10
+    maxActive: 100
+    maxWait: 60000
+    minIdle: 5
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
