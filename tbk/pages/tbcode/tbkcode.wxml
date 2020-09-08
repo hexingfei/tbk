@@ -1,0 +1,41 @@
+<!--pages/tbcode/tbkcode.wxml-->
+<view style='height: {{height}}rpx;background: #f1f1f1;'>
+  <view class='coupon-content'>
+    <view class='coupon-goods textmargin'>
+      <view class='textmargin' style='padding-top:20rpx;'>
+        <label>
+          <text class='coupon-goodp'>【商品】:{{goodsDesc}}</text>
+        </label>
+      </view>
+      <view style='height:257rpx;'>
+        <view class='textmargin'>
+          <label>
+            <text class='coupon-goodp'>【现价】:{{prices}}</text>
+          </label>
+        </view>
+        <view class='textmargin'>
+          <label>
+            <text class='coupon-goodp' style='color:red;font-weight: 700'>【优惠价】:{{coupon}}</text>
+          </label>
+        </view>
+        <view class='textmargin'>
+          <label>
+            【copy打开手机tao宝】:
+            <text style='color:red'>{{tbcode}}</text>
+          </label>
+        </view>
+      </view>
+
+    </view>
+    <view style='margin-top:90rpx;'>
+      <button class='coupon-btn' bindtap='onclick'>
+        <label class=''>复制文案</label>
+      </button>
+    </view>
+
+    <view class='coupon-text'>
+      <text> 使用说明：点击“复制文案”按钮后打开【手*淘】即可免费领取优#惠#券购买。</text>
+    </view>
+
+  </view>
+</view>

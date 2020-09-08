@@ -1,0 +1,78 @@
+<!--pages/detail/detail.wxml-->
+<view class='container'>
+  <view>
+    <swiper indicator-dots="{{true}}" autoplay="{{true}}" indicator-color="{{color}}" indicator-active-color="{{selectColor}}" interval="{{times}}" duration="500" style='height:250px'>
+      <block wx:for="{{detail.imgurl}}" wx:key="unique">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="listdesc">
+    <block wx:if='{{detail.iconflag==1}}'>
+      <image src='{{taobao}}' style='width:21.4px;height:21.4px;margin-left:5px;'></image>
+    </block>
+    <block wx:else>
+      <image src='{{tianmao}}' style='width:21.4px;height:21.4px;margin-left:5px;'></image>
+    </block>
+    <text style='font-size:30rpx;margin-left:8rpx;'>{{detail.goodsdesc}}</text>
+    <view class="middle">
+      <view class="coupon2" class='price-flex'>
+        <text style='color:red;font-size:36rpx'>券后价￥{{detail.prices-detail.coupon}} </text>
+        <text>已售{{detail.salesTotal}} 件</text>
+      </view>
+      <view class='price-flex'>
+        <text style='text-decoration: line-through;'>现价￥{{detail.prices}}</text>
+        <text>{{business.address}}</text>
+      </view>
+      <view class="bigcoupon" bindtap='tolingquan'>
+        <image src="../img/bigCouponBg.3264646.png" style='width:100%;height:100%'></image>
+        <text class='bigcoupontext'>￥{{detail.coupon}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="line"></view>
+
+  <view class='shop-outline'>
+    <image src='{{business.imgurl}}' class="busimg"></image>
+    <view class="shop-txt">
+      <text>{{business.name}}</text>
+      <label style='display:block;'>
+        <text class='shop-txt2'>店铺评分:{{business.score}}</text>
+      </label>
+
+    </view>
+
+  </view>
+  <view class='area-title'>大家都在买</view>
+  <!-- <view style='padding-bottom:100%'> -->
+   <scroll-view scroll-y style="height: 500px;padding-bottom:40rpx;" bindscrolltolower="lower">
+    <block wx:for='{{dataList}}' wx:key="unique">
+      <view class="li" data-id='{{item.id}}' bindtap='clickDeatil'>
+        <view class="listImgs">
+          <image src='{{item.imgurl}}' style='width:100%;height:100%'></image>
+        </view>
+        <view class="listdesc">
+          <block wx:if='{{item.iconflag==1}}'>
+            <image src='{{taobao}}' style='width:21.4px;height:21.4px;margin-left:5px;'></image>
+          </block>
+          <block wx:else>
+            <image src='{{tianmao}}' style='width:21.4px;height:21.4px;margin-left:5px'></image>
+          </block>
+          {{item.goodsdesc}}</view>
+        <view class='coupon' style='width:205px;height:29px;'>
+          <text>￥{{item.coupon}}</text>
+        </view>
+        <view style='margin-left:15rpx'>
+          <text style='color:red;;font-size: 35rpx'>券后￥{{item.prices-item.coupon}}</text>
+          <text style='color: #777;text-decoration: line-through;font-size: 29rpx'>￥{{item.prices}}</text>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+  <!-- </view> -->
+  <button class='btn coupon-btn' bindtap='tolingquan'>
+    <text class=" spn icon-mianfeilingquan">免费领券</text>
+  </button>
+</view>

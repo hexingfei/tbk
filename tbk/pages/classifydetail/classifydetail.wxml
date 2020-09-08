@@ -1,0 +1,48 @@
+<!--pages/classifydetail/classifydetail.wxml-->
+<!--pages/classify/classify.wxml-->
+<view style='height:{{height}}rpx'>
+
+  <view style='background: #fff;width: 100%;'>
+    <view class='sortBox'>
+      <view class='sortTxt' style='color:{{deafultColor}}' bindtap='sortData' data-click='{{zonghe}}'>综合</view>
+      <view class='sortTxt' style='color:{{deafultColorSales}}' bindtap='sortData' data-sort='{{sales}}' data-click='{{2}}'>销量
+        <image src='{{defaultSaleSortImg}}' class='sortImg'></image>
+      </view>
+      <view class='sortTxt' style='color:{{deafultColorLaterst}}' bindtap='sortData' data-sort='{{laterst}}' data-click='{{3}}'>最新
+        <image src='{{defaultLaterSortImg}}' class='sortImg'></image>
+      </view>
+    </view>
+
+    <view style='height:{{scrollHeight}}rpx'>
+      <scroll-view scroll-y="true" style="height:{{scrollHeight}}rpx" bindscrolltolower="lower" bindscrolltoupper="upper1">
+        <block wx:for='{{dataList}}' wx:key="*this">
+          <view class="listli" data-id='{{item.id}}' bindtap='clickDeatil'>
+            <view class="product-img">
+              <image src='{{item.imgurl}}' style='width:100%;height:100%'></image>
+            </view>
+            <view class="product-desc">
+            <view class="listdesc">
+              <block wx:if='{{item.iconflag==1}}'>
+                <image src='{{taobao}}' style='width:21.4px;height:21.4px;margin-left:5px;float:left;margin-top:5px'></image>
+              </block>
+              <block wx:else>
+                <image src='{{tianmao}}' style='width:21.4px;height:21.4px;margin-left:5px;float:left;margin-top:5px'></image>
+              </block>
+              <text class="goods-title">
+   {{item.goodsdesc}}</text>
+            </view>
+            <view class='coupon' style='width:205px;height:29px;'>
+              <text>￥{{item.coupon}}</text>
+            </view>
+            <view style='margin-left:15rpx'>
+              <text style='color:red;;font-size: 35rpx'>券后￥{{item.prices-item.coupon}}</text>
+              <text style='color: #777;text-decoration: line-through;font-size: 29rpx'>￥{{item.prices}}</text>
+            </view>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+
+</view>

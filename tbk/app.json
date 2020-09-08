@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/jingxuan/jingxuan",
+    "pages/detail/detail",
+    "pages/tbcode/tbkcode",
+    "pages/classify/classify",
+    "pages/classifydetail/classifydetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}
